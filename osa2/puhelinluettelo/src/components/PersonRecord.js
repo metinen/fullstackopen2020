@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PersonRecord = ({ person }) => {
+const PersonRecord = ({ person, handleRemoving }) => {
     return (
         <>
-            <li>{`${person.name}  ${person.number}`}</li>
+            <li>{`${person.name}  ${person.number}`} <button onClick={() => handleRemoving(person)}>Delete</button></li>
         </>
     );
 };

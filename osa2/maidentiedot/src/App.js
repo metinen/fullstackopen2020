@@ -24,9 +24,9 @@ const App = () => {
     axios
       .get(`http://api.weatherstack.com/current?access_key=${api_key}&query=${country.capital}`)
       .then(response => {
-        console.log(response.data)
         setWeatherForecast(response.data);
-      });
+      }).
+      catch(error => console.log(error));
   }
 
   const shouldFetchWeatherForecast = (newCountriesToShow) => newCountriesToShow.length === 1 && weatherForecast.location?.country !== newCountriesToShow[0].name;
@@ -51,7 +51,6 @@ const App = () => {
   }
 
   const getCountryInfo = () => {
-    console.log("Get country info", weatherForecast)
     if (countriesToShow.length === 1) {
       const country = countriesToShow[0];
       return <CountryDetails weatherForecast={weatherForecast} country={country} />

@@ -1,0 +1,9 @@
+POST http://localhost:3004/api/blogs
+Content-Type: application/json
+
+{
+    "title": "Home decor blog",
+    "author": "Mary Poppins",
+    "url": "http://blog.com",
+    "likes": 10
+}

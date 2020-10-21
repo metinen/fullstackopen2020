@@ -48,12 +48,20 @@ const App = () => {
             }
         } else {
             const person = { name: newName, number: newNumber }
-            const newPerson = PersonService.create(person);
-            newPerson.then(e => {
-                setPersons(persons.concat(e));
-                setMessage(`${person.name} is added to phonebook`);
-                setTimeout(() => setMessage(null), 5000)
-            });
+            PersonService.create(person)
+                .then(e => {
+                    setPersons(persons.concat(e));
+                    setMessage(`${person.name} is added to phonebook`);
+                    setTimeout(() => setMessage(null), 5000)
+                })
+                .catch(error => {
+                    setMessage(error.response.data.error);
+                    setIsError(true);
+                    setTimeout(() => {
+                        setMessage(null);
+                        setIsError(false);
+                    }, 5000)
+                });
         }
         setNewName('');
         setNewNumber('');

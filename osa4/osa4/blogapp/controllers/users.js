@@ -1,32 +1,27 @@
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
-const User = require('../models/user')
+const User = require('../models/User')
 
 usersRouter.post('/', async (request, response) => {
     const body = request.body
 
     const saltRounds = 10
-    let passwordHash = "";
+    const passwordHash = await bcrypt.hash(body.password, saltRounds)
 
-    bcrypt.genSalt(saltRounds, async function (err, salt) {
-        bcrypt.hash(body.password, salt, async function (err, hash) {
-            passwordHash = hash;
-            const user = new User({
-                username: body.username,
-                name: body.name,
-                passwordHash,
-            })
+    const user = new User({
+        username: body.username,
+        name: body.name,
+        passwordHash,
+    })
 
-            const savedUser = await user.save()
+    const savedUser = await user.save()
 
-            response.json(savedUser)
-        });
-    });
+    response.json(savedUser)
 })
 
 usersRouter.get('/', async (request, response) => {
-    const users = await User.find({})
-    response.json(users.map(u => u.toJSON()))
+    const users = await User.find({}).populate('blogs', { user: 0, id: 0 })
+    response.json(users)
 }
 )
 

@@ -6,17 +6,25 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.11.0",
+    "jest": "^26.6.0",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.9"
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.9",
+    "mongoose-unique-validator": "^2.0.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

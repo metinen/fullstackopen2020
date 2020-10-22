@@ -1,5 +1,6 @@
 POST http://localhost:3004/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcnk0NSIsImlkIjoiNWY5MWNhMWMwYjRjNWY1YWQ0NzA3YWUzIiwiaWF0IjoxNjAzMzk4OTc4fQ.HT5IYmyU6iMGrygQEHO17Ddgg_7yuZjLvrXQ6R73I1o
 
 {
     "title": "Home decor blog",

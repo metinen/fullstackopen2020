@@ -3,9 +3,9 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcnk0NSIsImlkIjoiNWY5MWNhMWMwYjRjNWY1YWQ0NzA3YWUzIiwiaWF0IjoxNjAzMzk4OTc4fQ.HT5IYmyU6iMGrygQEHO17Ddgg_7yuZjLvrXQ6R73I1o
 
 {
-    "title": "Home decor blog",
-    "author": "Mary Poppins",
-    "url": "http://blog.com",
-    "likes": 10,
-    "user": "5f91ca1c0b4c5f5ad4707ae3"
+    "title": "Redux blog",
+    "author": "Harry Potter",
+    "url": "http://medium.com/redux",
+    "likes": 5,
+    "user": "5f980b4068e0e01adc9ba5d5"
 }

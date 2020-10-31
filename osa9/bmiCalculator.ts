@@ -1,4 +1,4 @@
-const calculateBmi = (height: number, weight: number, ) => {
+const calculateBmi = (height: number, weight: number, ): string => {
     if (weight === 0) {
         throw new Error("Weight should be over 0");
     }

@@ -8,10 +8,9 @@ interface Result {
     average: number
 }
 
-const calculateExercises = (exercises: Array<number>): Result => {
+const calculateExercises = (target: number, exercises: Array<number>): Result => {
     const periodLength = 7;
     const averageDailyTime: number = exercises.reduce((a, b) => a + b, 0) / periodLength;
-    const target: number = 1.5;
     let rating: number = 1;
     let success: boolean = false;
     const ratingMap: { [key: string]: string } = {
@@ -41,4 +40,4 @@ const calculateExercises = (exercises: Array<number>): Result => {
     }
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1]));
+console.log(calculateExercises(1.5, [3, 0, 2, 4.5, 0, 3, 1]));

@@ -1,4 +1,4 @@
-const calculateBmi = (height: number, weight: number, ): string => {
+export const calculateBmi = (height: number, weight: number, ): string => {
     if (weight === 0) {
         throw new Error("Weight should be over 0");
     }
@@ -19,7 +19,7 @@ interface bmiInput {
     weight: number
 }
 
-const validateInput = (args: Array<string>): bmiInput => {
+export const validateInput = (args: Array<string>): bmiInput => {
     const height = Number(args[2]);
     const weight = Number(args[3]);
 

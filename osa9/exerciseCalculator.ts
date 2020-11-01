@@ -46,15 +46,14 @@ interface exerciseInput {
 }
 
 const validateExerciseInput = (args: Array<string>): exerciseInput => {
-    const target = Number(process.argv[2]);
-    const exercises = (process.argv.slice(3)).map(e => Number(e));
-    const periodLength = exercises?.length;
+    const target = Number(args[2]);
+    const exercises = (args.slice(3)).map(e => Number(e));
 
     if (isNaN(target)) {
         throw new Error("You didn't provide target");
     }
 
-    if (!exercises) {
+    if (exercises.length < 1) {
         throw new Error("You didn't provide exercises");
     }
 

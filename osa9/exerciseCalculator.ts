@@ -9,7 +9,7 @@ interface Result {
 }
 
 const calculateExercises = (target: number, exercises: Array<number>): Result => {
-    const periodLength = 7;
+    const periodLength = exercises.length;
     const averageDailyTime: number = exercises.reduce((a, b) => a + b, 0) / periodLength;
     let rating: number = 1;
     let success: boolean = false;

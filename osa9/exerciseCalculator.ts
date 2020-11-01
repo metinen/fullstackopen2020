@@ -31,7 +31,7 @@ const calculateExercises = (target: number, exercises: Array<number>): Result =>
 
     return {
         periodLength: periodLength,
-        trainingDays: exercises.length,
+        trainingDays: exercises.filter(e => e > 0).length,
         success: success,
         rating: rating,
         ratingDescription: ratingMap[rating],
@@ -40,4 +40,32 @@ const calculateExercises = (target: number, exercises: Array<number>): Result =>
     }
 }
 
-console.log(calculateExercises(1.5, [3, 0, 2, 4.5, 0, 3, 1]));
+interface exerciseInput {
+    target: number,
+    exercises: Array<number>
+}
+
+const validateExerciseInput = (args: Array<string>): exerciseInput => {
+    const target = Number(process.argv[2]);
+    const exercises = (process.argv.slice(3)).map(e => Number(e));
+    const periodLength = exercises?.length;
+
+    if (isNaN(target)) {
+        throw new Error("You didn't provide target");
+    }
+
+    if (!exercises) {
+        throw new Error("You didn't provide exercises");
+    }
+
+    return {
+        target, exercises
+    }
+}
+
+try {
+    const { target, exercises } = validateExerciseInput(process.argv)
+    console.log(calculateExercises(target, exercises));
+} catch (e) {
+    console.log("Something went wrong", e)
+}
